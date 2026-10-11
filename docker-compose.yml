@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: resolveai-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: resolveai
+      POSTGRES_PASSWORD: resolveai_password
+      POSTGRES_DB: resolveai
+    ports:
+      - "5432:5432"
+    volumes:
+      - resolveai_postgres:/var/lib/postgresql/data
+
+volumes:
+  resolveai_postgres:
